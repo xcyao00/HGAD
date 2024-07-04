@@ -1,4 +1,4 @@
-## [Hierarchical Gaussian Mixture Normalizing Flows Modeling for Unified Aanomaly Detection](https://arxiv.org/abs/2403.13349)
+## [Hierarchical Gaussian Mixture Normalizing Flows Modeling for Unified Anomaly Detection](https://arxiv.org/abs/2403.13349)
 
 PyTorch implementation for ECCV2024 paper, Hierarchical Gaussian Mixture Normalizing Flows Modeling for Unified Anomaly Detection.
 
@@ -102,7 +102,7 @@ We also report the detailed results on the Union dataset as follows:
 If you find this repository useful, please consider citing our work:
 ```
 @article{HGAD,
-      title={Hierarchical Gaussian Mixture Normalizing Flows Modeling for Multi-Class Aanomaly Detection}, 
+      title={Hierarchical Gaussian Mixture Normalizing Flows Modeling for Unified Anomaly Detection}, 
       author={Xincheng Yao and Ruoqi Li and Zefeng Qian and Lu Wang and Chongyang Zhang},
       year={2024},
       booktitle={European Conference on Computer Vision 2024},
