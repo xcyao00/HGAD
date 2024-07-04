@@ -1,6 +1,6 @@
-## [Hierarchical Gaussian Mixture Normalizing Flows Modeling for Multi-Class Aanomaly Detection](https://arxiv.org/abs/2403.13349)
+## [Hierarchical Gaussian Mixture Normalizing Flows Modeling for Unified Aanomaly Detection](https://arxiv.org/abs/2403.13349)
 
-PyTorch implementation for ECCV2024 paper, Hierarchical Gaussian Mixture Normalizing Flows Modeling for Multi-Class Aanomaly Detection.
+PyTorch implementation for ECCV2024 paper, Hierarchical Gaussian Mixture Normalizing Flows Modeling for Unified Anomaly Detection.
 
 <img src="./HGAD-framework.png" width="800">
 
