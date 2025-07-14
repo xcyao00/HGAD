@@ -112,3 +112,100 @@ If you find this repository useful, please consider citing our work:
 ```
 
 If you are interested in our work, you can also follow our other works: [BGAD (CVPR2023)](https://github.com/xcyao00/BGAD), [PMAD (AAAI2023)](https://github.com/xcyao00/PMAD), [FOD (ICCV2023)](https://github.com/xcyao00/FOD), [ResAD (NeurIPS2024)](https://github.com/xcyao00/ResAD). Or, you can follow our github page [xcyao00](https://github.com/xcyao00).
+
+
+# Configuration File Usage
+
+## Overview
+The HGAD training script now supports configuration files in JSON format. This allows you to easily manage different experimental settings and share configurations.
+
+## Usage
+
+### 1. Using Command Line Arguments Only
+```bash
+python main.py --dataset mvtec --seed 0 --gpu 0 --batch_size 8
+```
+
+### 2. Using Configuration File
+```bash
+python main.py --config configs/default_config.json
+```
+
+### 3. Using Configuration File with Override
+```bash
+python main.py --config configs/default_config.json --seed 42 --batch_size 16
+```
+
+## Configuration File Format
+
+Configuration files should be in JSON format. Here's an example:
+
+```json
+{
+  "backbone_arch": "tf_efficientnet_b6",
+  "dataset": "mvtec",
+  "img_size": 1024,
+  "batch_size": 8,
+  "lr": 0.0002,
+  "meta_epochs": 25,
+  "sub_epochs": 8,
+  "seed": 0,
+  "gpu": "0"
+}
+```
+
+## Priority Order
+
+1. **Command line arguments** (highest priority)
+2. **Configuration file values**
+3. **Default values** (lowest priority)
+
+This means you can use a configuration file as a base and override specific parameters via command line.
+
+## Available Configuration Files
+
+### `configs/default_config.json`
+- Standard configuration for full training
+- Image size: 1024x1024
+- 25 meta epochs, 8 sub epochs
+- Batch size: 8
+
+### `configs/fast_test_config.json`
+- Configuration for quick testing
+- Image size: 512x512
+- 10 meta epochs, 4 sub epochs
+- Batch size: 4
+- Reduced parameters for faster execution
+
+## Creating Custom Configurations
+
+1. Copy an existing configuration file
+2. Modify the parameters as needed
+3. Save with a descriptive name
+4. Use with `--config path/to/your/config.json`
+
+## Experiment Tracking
+
+Each experiment automatically saves:
+- `config.txt`: Human-readable configuration
+- `config.json`: Machine-readable configuration (can be reused)
+- Training logs and evaluation results
+
+## Example Workflows
+
+### Development/Testing
+```bash
+python main.py --config configs/fast_test_config.json --seed 123
+```
+
+### Production Training
+```bash
+python main.py --config configs/default_config.json --seed 42
+```
+
+### Hyperparameter Sweep
+```bash
+python main.py --config configs/default_config.json --lr 0.001 --seed 1
+python main.py --config configs/default_config.json --lr 0.0001 --seed 1
+python main.py --config configs/default_config.json --lr 0.00001 --seed 1
+``` 

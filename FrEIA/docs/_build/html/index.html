@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Welcome to FrEIA’s documentation! &#8212; FrEIA v0.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=7bf50ca2"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quickstart guide" href="tutorial/quickstart.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FrEIA v0.2 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="tutorial/quickstart.html">
+                        Quickstart guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="tutorial/tutorial.html">
+                        Tutorial
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="tutorial/examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="FrEIA.framework.html">
+                        FrEIA.framework package
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="FrEIA.modules.html">
+                        FrEIA.modules package
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="tutorial/quickstart.html">
+                        Quickstart guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="tutorial/tutorial.html">
+                        Tutorial
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="tutorial/examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="FrEIA.framework.html">
+                        FrEIA.framework package
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="FrEIA.modules.html">
+                        FrEIA.modules package
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="module-FrEIA">
+<span id="welcome-to-freia-s-documentation"></span><h1>Welcome to FrEIA’s documentation!<a class="headerlink" href="#module-FrEIA" title="Permalink to this heading">#</a></h1>
+<p>Framework for Easily Invertible Architectures.
+Module to construct invertible networks with pytorch, based on a graph
+structure of operations.</p>
+<section id="tutorial">
+<h2>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/quickstart.html">Quickstart guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/basic_concepts.html">Basic concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/invertible_operations.html">Invertible Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/invertible_operations.html#coupling-blocks">Coupling blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/invertible_operations.html#defining-custom-invertible-operations">Defining custom invertible operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/sequential_inns.html">Sequential API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/graph_inns.html">Computation graph API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/tips_tricks_faq.html">Tips &amp; Tricks, FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/examples.html#network-architectures">Network architectures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/examples/fully_connected.html">Small fully-connected INNs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/examples/fully_connected.html#simple-inn-in-2-dimensions">Simple INN in 2 dimensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorial/examples/fully_connected.html#conditional-inn-for-mnist">Conditional INN for MNIST</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/examples/convolutional.html">Convolutional INN with invertible downsampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/examples/bayes_flow.html">Bayes-flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/examples/inv_unet.html">Invertible U-Net</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/examples.html#full-training-loops">Full training loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/examples/training_loop_cinn.html">Training: MNIST conditional normalizing flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial/examples/training_loop_inn.html">Training: CelebA normalizing flow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="package-documentation">
+<h2>Package Documentation<a class="headerlink" href="#package-documentation" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="FrEIA.framework.html">FrEIA.framework package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FrEIA.framework.html#module-FrEIA.framework">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.ConditionNode"><code class="docutils literal notranslate"><span class="pre">ConditionNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.ConditionNode.__init__"><code class="docutils literal notranslate"><span class="pre">ConditionNode.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.ConditionNode.build_module"><code class="docutils literal notranslate"><span class="pre">ConditionNode.build_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.ConditionNode.consume_output"><code class="docutils literal notranslate"><span class="pre">ConditionNode.consume_output()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.ConditionNode.rev_input"><code class="docutils literal notranslate"><span class="pre">ConditionNode.rev_input()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.FeedForwardNode"><code class="docutils literal notranslate"><span class="pre">FeedForwardNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.FeedForwardNode.__init__"><code class="docutils literal notranslate"><span class="pre">FeedForwardNode.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.FeedForwardNode.build_module"><code class="docutils literal notranslate"><span class="pre">FeedForwardNode.build_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.FeedForwardNode.rev_input"><code class="docutils literal notranslate"><span class="pre">FeedForwardNode.rev_input()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.GraphINN"><code class="docutils literal notranslate"><span class="pre">GraphINN</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.GraphINN.__init__"><code class="docutils literal notranslate"><span class="pre">GraphINN.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.GraphINN.get_module_by_name"><code class="docutils literal notranslate"><span class="pre">GraphINN.get_module_by_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.GraphINN.get_node_by_name"><code class="docutils literal notranslate"><span class="pre">GraphINN.get_node_by_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.GraphINN.log_jacobian_numerical"><code class="docutils literal notranslate"><span class="pre">GraphINN.log_jacobian_numerical()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.GraphINN.node_list"><code class="docutils literal notranslate"><span class="pre">GraphINN.node_list</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.InputNode"><code class="docutils literal notranslate"><span class="pre">InputNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.InputNode.__init__"><code class="docutils literal notranslate"><span class="pre">InputNode.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.InputNode.build_module"><code class="docutils literal notranslate"><span class="pre">InputNode.build_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.InputNode.rev_input"><code class="docutils literal notranslate"><span class="pre">InputNode.rev_input()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.Node.build_module"><code class="docutils literal notranslate"><span class="pre">Node.build_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.Node.rev_input"><code class="docutils literal notranslate"><span class="pre">Node.rev_input()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.OutputNode"><code class="docutils literal notranslate"><span class="pre">OutputNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.OutputNode.__init__"><code class="docutils literal notranslate"><span class="pre">OutputNode.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.OutputNode.build_module"><code class="docutils literal notranslate"><span class="pre">OutputNode.build_module()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.OutputNode.consume_output"><code class="docutils literal notranslate"><span class="pre">OutputNode.consume_output()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.OutputNode.rev_input"><code class="docutils literal notranslate"><span class="pre">OutputNode.rev_input()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.ReversibleGraphNet"><code class="docutils literal notranslate"><span class="pre">ReversibleGraphNet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.ReversibleGraphNet.__init__"><code class="docutils literal notranslate"><span class="pre">ReversibleGraphNet.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.ReversibleSequential"><code class="docutils literal notranslate"><span class="pre">ReversibleSequential</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.ReversibleSequential.__init__"><code class="docutils literal notranslate"><span class="pre">ReversibleSequential.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.SequenceINN"><code class="docutils literal notranslate"><span class="pre">SequenceINN</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.SequenceINN.__init__"><code class="docutils literal notranslate"><span class="pre">SequenceINN.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.SequenceINN.append"><code class="docutils literal notranslate"><span class="pre">SequenceINN.append()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.framework.html#FrEIA.framework.collect_nodes"><code class="docutils literal notranslate"><span class="pre">collect_nodes()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FrEIA.modules.html">FrEIA.modules package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FrEIA.modules.html#abstract-template">Abstract template</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvertibleModule"><code class="docutils literal notranslate"><span class="pre">InvertibleModule</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvertibleModule.__init__"><code class="docutils literal notranslate"><span class="pre">InvertibleModule.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvertibleModule.forward"><code class="docutils literal notranslate"><span class="pre">InvertibleModule.forward()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvertibleModule.log_jacobian"><code class="docutils literal notranslate"><span class="pre">InvertibleModule.log_jacobian()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvertibleModule.output_dims"><code class="docutils literal notranslate"><span class="pre">InvertibleModule.output_dims()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FrEIA.modules.html#coupling-blocks">Coupling blocks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.AllInOneBlock"><code class="docutils literal notranslate"><span class="pre">AllInOneBlock</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.AllInOneBlock.__init__"><code class="docutils literal notranslate"><span class="pre">AllInOneBlock.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.NICECouplingBlock"><code class="docutils literal notranslate"><span class="pre">NICECouplingBlock</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.NICECouplingBlock.__init__"><code class="docutils literal notranslate"><span class="pre">NICECouplingBlock.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.RNVPCouplingBlock"><code class="docutils literal notranslate"><span class="pre">RNVPCouplingBlock</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.RNVPCouplingBlock.__init__"><code class="docutils literal notranslate"><span class="pre">RNVPCouplingBlock.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.GLOWCouplingBlock"><code class="docutils literal notranslate"><span class="pre">GLOWCouplingBlock</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.GLOWCouplingBlock.__init__"><code class="docutils literal notranslate"><span class="pre">GLOWCouplingBlock.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.GINCouplingBlock"><code class="docutils literal notranslate"><span class="pre">GINCouplingBlock</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.GINCouplingBlock.__init__"><code class="docutils literal notranslate"><span class="pre">GINCouplingBlock.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.AffineCouplingOneSided"><code class="docutils literal notranslate"><span class="pre">AffineCouplingOneSided</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.AffineCouplingOneSided.__init__"><code class="docutils literal notranslate"><span class="pre">AffineCouplingOneSided.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.ConditionalAffineTransform"><code class="docutils literal notranslate"><span class="pre">ConditionalAffineTransform</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.ConditionalAffineTransform.__init__"><code class="docutils literal notranslate"><span class="pre">ConditionalAffineTransform.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FrEIA.modules.html#reshaping">Reshaping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.IRevNetDownsampling"><code class="docutils literal notranslate"><span class="pre">IRevNetDownsampling</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.IRevNetDownsampling.__init__"><code class="docutils literal notranslate"><span class="pre">IRevNetDownsampling.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.IRevNetUpsampling"><code class="docutils literal notranslate"><span class="pre">IRevNetUpsampling</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.IRevNetUpsampling.__init__"><code class="docutils literal notranslate"><span class="pre">IRevNetUpsampling.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.HaarDownsampling"><code class="docutils literal notranslate"><span class="pre">HaarDownsampling</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.HaarDownsampling.__init__"><code class="docutils literal notranslate"><span class="pre">HaarDownsampling.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.HaarUpsampling"><code class="docutils literal notranslate"><span class="pre">HaarUpsampling</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.HaarUpsampling.__init__"><code class="docutils literal notranslate"><span class="pre">HaarUpsampling.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.Flatten"><code class="docutils literal notranslate"><span class="pre">Flatten</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.Flatten.__init__"><code class="docutils literal notranslate"><span class="pre">Flatten.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.Reshape"><code class="docutils literal notranslate"><span class="pre">Reshape</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.Reshape.__init__"><code class="docutils literal notranslate"><span class="pre">Reshape.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FrEIA.modules.html#graph-topology">Graph topology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.Split"><code class="docutils literal notranslate"><span class="pre">Split</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.Split.__init__"><code class="docutils literal notranslate"><span class="pre">Split.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.Concat"><code class="docutils literal notranslate"><span class="pre">Concat</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.Concat.__init__"><code class="docutils literal notranslate"><span class="pre">Concat.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FrEIA.modules.html#other-learned-transforms">Other learned transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.ActNorm"><code class="docutils literal notranslate"><span class="pre">ActNorm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.ActNorm.__init__"><code class="docutils literal notranslate"><span class="pre">ActNorm.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.ActNorm.initialize"><code class="docutils literal notranslate"><span class="pre">ActNorm.initialize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.ActNorm.load_state_dict"><code class="docutils literal notranslate"><span class="pre">ActNorm.load_state_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.ActNorm.scale"><code class="docutils literal notranslate"><span class="pre">ActNorm.scale</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvAutoAct"><code class="docutils literal notranslate"><span class="pre">InvAutoAct</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvAutoAct.__init__"><code class="docutils literal notranslate"><span class="pre">InvAutoAct.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvAutoActTwoSided"><code class="docutils literal notranslate"><span class="pre">InvAutoActTwoSided</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvAutoActTwoSided.__init__"><code class="docutils literal notranslate"><span class="pre">InvAutoActTwoSided.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.LearnedElementwiseScaling"><code class="docutils literal notranslate"><span class="pre">LearnedElementwiseScaling</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.LearnedElementwiseScaling.__init__"><code class="docutils literal notranslate"><span class="pre">LearnedElementwiseScaling.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.OrthogonalTransform"><code class="docutils literal notranslate"><span class="pre">OrthogonalTransform</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.OrthogonalTransform.__init__"><code class="docutils literal notranslate"><span class="pre">OrthogonalTransform.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.HouseholderPerm"><code class="docutils literal notranslate"><span class="pre">HouseholderPerm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.HouseholderPerm.__init__"><code class="docutils literal notranslate"><span class="pre">HouseholderPerm.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FrEIA.modules.html#fixed-non-learned-transforms">Fixed (non-learned) transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.PermuteRandom"><code class="docutils literal notranslate"><span class="pre">PermuteRandom</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.PermuteRandom.__init__"><code class="docutils literal notranslate"><span class="pre">PermuteRandom.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.FixedLinearTransform"><code class="docutils literal notranslate"><span class="pre">FixedLinearTransform</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.FixedLinearTransform.__init__"><code class="docutils literal notranslate"><span class="pre">FixedLinearTransform.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.Fixed1x1Conv"><code class="docutils literal notranslate"><span class="pre">Fixed1x1Conv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.Fixed1x1Conv.__init__"><code class="docutils literal notranslate"><span class="pre">Fixed1x1Conv.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvertibleSigmoid"><code class="docutils literal notranslate"><span class="pre">InvertibleSigmoid</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvertibleSigmoid.__init__"><code class="docutils literal notranslate"><span class="pre">InvertibleSigmoid.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FrEIA.modules.html#approximately-or-semi-invertible-transforms">Approximately- or semi-invertible transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvAutoFC"><code class="docutils literal notranslate"><span class="pre">InvAutoFC</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvAutoFC.__init__"><code class="docutils literal notranslate"><span class="pre">InvAutoFC.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvAutoConv2D"><code class="docutils literal notranslate"><span class="pre">InvAutoConv2D</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.InvAutoConv2D.__init__"><code class="docutils literal notranslate"><span class="pre">InvAutoConv2D.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.IResNetLayer"><code class="docutils literal notranslate"><span class="pre">IResNetLayer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.IResNetLayer.__init__"><code class="docutils literal notranslate"><span class="pre">IResNetLayer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.IResNetLayer.lipschitz_correction"><code class="docutils literal notranslate"><span class="pre">IResNetLayer.lipschitz_correction()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.GaussianMixtureModel"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.GaussianMixtureModel.__init__"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModel.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.GaussianMixtureModel.nll_loss"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModel.nll_loss()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.GaussianMixtureModel.nll_upper_bound"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModel.nll_upper_bound()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.GaussianMixtureModel.normalize_weights"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModel.normalize_weights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="FrEIA.modules.html#FrEIA.modules.GaussianMixtureModel.pick_mixture_component"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModel.pick_mixture_component()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="tutorial/quickstart.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quickstart guide</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial">Tutorial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-documentation">Package Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/index.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2021, VLL-HD.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

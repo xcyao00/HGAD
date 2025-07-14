@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Computation graph API &#8212; FrEIA v0.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=7bf50ca2"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/graph_inns';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tips &amp; Tricks, FAQ" href="tips_tricks_faq.html" />
+    <link rel="prev" title="Sequential API" href="sequential_inns.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">FrEIA v0.2 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="quickstart.html">
+                        Quickstart guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="tutorial.html">
+                        Tutorial
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../FrEIA.framework.html">
+                        FrEIA.framework package
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../FrEIA.modules.html">
+                        FrEIA.modules package
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="quickstart.html">
+                        Quickstart guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="tutorial.html">
+                        Tutorial
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../FrEIA.framework.html">
+                        FrEIA.framework package
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../FrEIA.modules.html">
+                        FrEIA.modules package
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basic_concepts.html">Basic concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invertible_operations.html">Invertible Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sequential_inns.html">Sequential API</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Computation graph API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips_tricks_faq.html">Tips &amp; Tricks, FAQ</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="tutorial.html" class="nav-link">Tutorial</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Computation...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="computation-graph-api">
+<h1>Computation graph API<a class="headerlink" href="#computation-graph-api" title="Permalink to this heading">#</a></h1>
+<p>The building blocks of the INN computation graph are the nodes in it.
+They are provided through the <code class="docutils literal notranslate"><span class="pre">FrEIA.framework.Node</span></code> class.
+The computation graph is constructed by constructing each node, given its
+inputs (defining one direction of the INN as the ‘forward’ computation).
+More specifically:</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Node</span></code>-subclass <code class="docutils literal notranslate"><span class="pre">InputNode</span></code> represents an input to the INN, and its constructor only
+takes the dimensions of the data (except the batch dimension). E.g. for a 32x32 RGB image:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">in1</span> <span class="o">=</span> <span class="n">InputNode</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Input 1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">name</span></code> argument can be omitted in principle, but it is recommended in
+general, as it appears e.g. in error messages.</p>
+</li>
+<li><p>Each <code class="docutils literal notranslate"><span class="pre">Node</span></code> (and derived classes) has properties <code class="docutils literal notranslate"><span class="pre">node.out0</span></code>,
+<code class="docutils literal notranslate"><span class="pre">node.out1</span></code>, etc., depending on its number of outputs.
+Instead of <code class="docutils literal notranslate"><span class="pre">node.out{i}</span></code>, it is equivalent to use a tuple <code class="docutils literal notranslate"><span class="pre">(node,</span> <span class="pre">i)</span></code>,
+which is useful if you e.g. want to loop over 10 outputs of a node.</p></li>
+<li><p>Each <code class="docutils literal notranslate"><span class="pre">Node</span></code> is initialized given a list of its inputs as the first
+constructor argument, along with other arguments covered later (omitted as
+‘<code class="docutils literal notranslate"><span class="pre">...</span></code>’ in the following, in particular defining what operation the node
+should represent). For <em>Permutation</em> in the example above, this would look
+like the this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">perm</span> <span class="o">=</span> <span class="n">Node</span><span class="p">([</span><span class="n">in1</span><span class="o">.</span><span class="n">out0</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Permutation&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or for <em>Merge 2</em>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">merge2</span> <span class="o">=</span> <span class="n">Node</span><span class="p">([</span><span class="n">affine</span><span class="o">.</span><span class="n">out0</span><span class="p">,</span> <span class="n">split2</span><span class="o">.</span><span class="n">out1</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Merge 2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Conditions are passed as a list through the <code class="docutils literal notranslate"><span class="pre">conditions</span></code> argument:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">affine</span> <span class="o">=</span> <span class="n">Node</span><span class="p">([</span><span class="n">merge1</span><span class="o">.</span><span class="n">out0</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="p">[</span><span class="n">cond</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Affine Coupling&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Node</span></code>-subclass <code class="docutils literal notranslate"><span class="pre">OutputNode</span></code> is used for the outputs. The INN as a whole
+will return the result at this node.</p></li>
+<li><p>Conditions (as in the cINN paper) are represented by <code class="docutils literal notranslate"><span class="pre">ConditionNode</span></code>, whose
+constructor is identical to the <code class="docutils literal notranslate"><span class="pre">InputNode</span></code>.</p></li>
+<li><p>Take note of several features for convenience (also see examples below): 1.)
+If a preceding node only has a single output, it is also equivalent to
+directly use <code class="docutils literal notranslate"><span class="pre">node</span></code> instead of <code class="docutils literal notranslate"><span class="pre">node.out0</span></code> in the constructor of
+following nodes.  2.) If a node only takes a sinlge input/condition, you can
+directly use only that input in the constructor instead of a list, i.e.
+<code class="docutils literal notranslate"><span class="pre">node.out0</span></code> instead of <code class="docutils literal notranslate"><span class="pre">[node.out0]</span></code>.</p></li>
+<li><p>From the list of nodes, the INN is represented by the class
+<code class="docutils literal notranslate"><span class="pre">FrEIA.framework.GraphINN</span></code>. The constructor takes a list of all
+the nodes in the INN (order irrelevant).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">GraphINN</span></code> is a subclass of <code class="docutils literal notranslate"><span class="pre">torch.nn.Module</span></code>, and can be
+used like any other torch <code class="docutils literal notranslate"><span class="pre">Module</span></code>.
+For the computation, the inputs are given as a list of torch tensors, or just
+a single torch tensor if there is only one input. To perform the inverse pass,
+the <code class="docutils literal notranslate"><span class="pre">rev</span></code> argument has to be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> (see examples).</p></li>
+</ul>
+<p>Above, we only covered the construction of the computation graph itself, but so
+far we have not shown how to define the operations represented by each node.
+Therefore, we will take a closer look at the <code class="docutils literal notranslate"><span class="pre">Node</span></code> constructor and its
+arguments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Node</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">module_type</span><span class="p">,</span> <span class="n">module_args</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="p">[],</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The arguments of the <code class="docutils literal notranslate"><span class="pre">Node</span></code> constructor are the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">inputs</span></code>: A list of outputs of other nodes, that are used as inputs for
+this node (discussed above)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module_type</span></code>: This argument gives the class of operation to be performed by this node,
+for example <code class="docutils literal notranslate"><span class="pre">GLOWCouplingBlock</span></code> for a coupling block following the GLOW-design.
+Many implemented classes can be found in the documentation under
+<a class="reference external" href="https://vll-hd.github.io/FrEIA/modules/index.html">https://vll-hd.github.io/FrEIA/modules/index.html</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module_args</span></code>: This argument is a dictionary. It provides arguments for the
+<code class="docutils literal notranslate"><span class="pre">module_type</span></code>-constructor. For instance, a random invertible permutation
+(<code class="docutils literal notranslate"><span class="pre">module_type=PermuteRandom</span></code>) can accept the argument <code class="docutils literal notranslate"><span class="pre">seed</span></code>, so we could use
+<code class="docutils literal notranslate"><span class="pre">module_args={'seed':</span> <span class="pre">111}</span></code>.
+If no arguments are specified we must pass an empty dictionary <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p></li>
+</ul>
+<p>Using these rules, we would construct the INN from the example
+in the <em>Basic concepts</em> section:
+<a class="reference internal" href="../_images/inn_example_architecture.png"><img alt="complicatedINN" src="../_images/inn_example_architecture.png" style="width: 772.8px; height: 248.39999999999998px;" /></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">in1</span> <span class="o">=</span> <span class="n">Ff</span><span class="o">.</span><span class="n">InputNode</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Input 1&#39;</span><span class="p">)</span> <span class="c1"># 1D vector</span>
+<span class="n">in2</span> <span class="o">=</span> <span class="n">Ff</span><span class="o">.</span><span class="n">InputNode</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Input 2&#39;</span><span class="p">)</span> <span class="c1"># 1D vector</span>
+<span class="n">cond</span> <span class="o">=</span> <span class="n">Ff</span><span class="o">.</span><span class="n">ConditionNode</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Condition&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">subnet</span><span class="p">(</span><span class="n">dims_in</span><span class="p">,</span> <span class="n">dims_out</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">dims_in</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+                         <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">dims_out</span><span class="p">))</span>
+
+<span class="n">perm</span> <span class="o">=</span> <span class="n">Ff</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span> <span class="n">Fm</span><span class="o">.</span><span class="n">PermuteRandom</span><span class="p">,</span> <span class="p">{},</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Permutation&#39;</span><span class="p">)</span>
+<span class="n">split1</span> <span class="o">=</span>  <span class="n">Ff</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="n">perm</span><span class="p">,</span> <span class="n">Fm</span><span class="o">.</span><span class="n">Split</span><span class="p">,</span> <span class="p">{},</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Split 1&#39;</span><span class="p">)</span>
+<span class="n">split2</span> <span class="o">=</span>  <span class="n">Ff</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="n">split1</span><span class="o">.</span><span class="n">out1</span><span class="p">,</span> <span class="n">Fm</span><span class="o">.</span><span class="n">Split</span><span class="p">,</span> <span class="p">{},</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Split 2&#39;</span><span class="p">)</span>
+<span class="n">actnorm</span> <span class="o">=</span> <span class="n">Ff</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="n">split2</span><span class="o">.</span><span class="n">out1</span><span class="p">,</span> <span class="n">Fm</span><span class="o">.</span><span class="n">ActNorm</span><span class="p">,</span> <span class="p">{},</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ActNorm&#39;</span><span class="p">)</span>
+<span class="n">concat1</span> <span class="o">=</span>  <span class="n">Ff</span><span class="o">.</span><span class="n">Node</span><span class="p">([</span><span class="n">actnorm</span><span class="o">.</span><span class="n">out0</span><span class="p">,</span> <span class="n">in2</span><span class="o">.</span><span class="n">out0</span><span class="p">],</span> <span class="n">Fm</span><span class="o">.</span><span class="n">Concat</span><span class="p">,</span> <span class="p">{},</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Concat 1&#39;</span><span class="p">)</span>
+<span class="n">affine</span> <span class="o">=</span> <span class="n">Ff</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="n">concat1</span><span class="p">,</span> <span class="n">Fm</span><span class="o">.</span><span class="n">AffineCouplingOneSided</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;subnet_constructor&#39;</span><span class="p">:</span> <span class="n">subnet</span><span class="p">},</span>
+                 <span class="n">conditions</span><span class="o">=</span><span class="n">cond</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Affine Coupling&#39;</span><span class="p">)</span>
+<span class="n">concat2</span> <span class="o">=</span>  <span class="n">Ff</span><span class="o">.</span><span class="n">Node</span><span class="p">([</span><span class="n">split2</span><span class="o">.</span><span class="n">out0</span><span class="p">,</span> <span class="n">affine</span><span class="o">.</span><span class="n">out0</span><span class="p">],</span> <span class="n">Fm</span><span class="o">.</span><span class="n">Concat</span><span class="p">,</span> <span class="p">{},</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Concat 2&#39;</span><span class="p">)</span>
+
+<span class="n">output1</span> <span class="o">=</span> <span class="n">Ff</span><span class="o">.</span><span class="n">OutputNode</span><span class="p">(</span><span class="n">split1</span><span class="o">.</span><span class="n">out0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Output 1&#39;</span><span class="p">)</span>
+<span class="n">output2</span> <span class="o">=</span> <span class="n">Ff</span><span class="o">.</span><span class="n">OutputNode</span><span class="p">(</span><span class="n">concat2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Output 2&#39;</span><span class="p">)</span>
+
+<span class="n">example_INN</span> <span class="o">=</span> <span class="n">Ff</span><span class="o">.</span><span class="n">GraphINN</span><span class="p">([</span><span class="n">in1</span><span class="p">,</span> <span class="n">in2</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span>
+                           <span class="n">perm</span><span class="p">,</span> <span class="n">split1</span><span class="p">,</span> <span class="n">split2</span><span class="p">,</span>
+                           <span class="n">actnorm</span><span class="p">,</span> <span class="n">concat1</span><span class="p">,</span> <span class="n">affine</span><span class="p">,</span> <span class="n">concat2</span><span class="p">,</span>
+                           <span class="n">output1</span><span class="p">,</span> <span class="n">output2</span><span class="p">])</span>
+
+<span class="c1"># dummy inputs:</span>
+<span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># compute the outputs</span>
+<span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">),</span> <span class="n">log_jac_det</span> <span class="o">=</span> <span class="n">example_INN</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+
+<span class="c1"># invert the network and check if we get the original inputs back:</span>
+<span class="p">(</span><span class="n">x1_inv</span><span class="p">,</span> <span class="n">x2_inv</span><span class="p">),</span> <span class="n">log_jac_det_inv</span> <span class="o">=</span> <span class="n">example_INN</span><span class="p">([</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">rev</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x1_inv</span> <span class="o">-</span> <span class="n">x1</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-5</span>
+       <span class="ow">and</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x2_inv</span> <span class="o">-</span> <span class="n">x2</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-5</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sequential_inns.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sequential API</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tips_tricks_faq.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tips &amp; Tricks, FAQ</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/tutorial/graph_inns.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2021, VLL-HD.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

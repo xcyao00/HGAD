@@ -4,6 +4,9 @@ from tqdm import tqdm
 import numpy as np
 from sklearn.metrics import roc_auc_score
 from scipy.ndimage import gaussian_filter
+import os
+import csv
+from datetime import datetime
 
 import torch.optim
 import torch.nn.functional as F
@@ -19,6 +22,52 @@ from datasets.visa import VISA, VISA_CLASS_NAMES
 from datasets.union import UnionDataset
 from utils import adjust_learning_rate, warmup_learning_rate, onehot
 
+
+def save_training_log(log_dir, epoch, sub_epoch, iteration, losses, lr):
+    """Save training iteration logs to CSV file"""
+    log_file = os.path.join(log_dir, "training_log.csv")
+    
+    # Check if file exists to write header
+    write_header = not os.path.exists(log_file)
+    
+    with open(log_file, 'a', newline='') as f:
+        writer = csv.writer(f)
+        
+        if write_header:
+            writer.writerow(['timestamp', 'epoch', 'sub_epoch', 'iteration', 'L_g', 'L_mi', 'L_e', 'L_g_intra', 'L_z', 'lr'])
+        
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        writer.writerow([
+            timestamp, epoch, sub_epoch, iteration,
+            losses['L_g'].item(), losses['L_mi'].item(), losses['L_e'].item(),
+            losses['L_g_intra'].item() if isinstance(losses['L_g_intra'], torch.Tensor) else losses['L_g_intra'],
+            losses['L_z'].item() if isinstance(losses['L_z'], torch.Tensor) else losses['L_z'],
+            lr
+        ])
+
+def save_evaluation_results(result_dir, epoch, sub_epoch, class_names, img_aucs, pixel_aucs):
+    """Save evaluation results to CSV file"""
+    result_file = os.path.join(result_dir, "evaluation_results.csv")
+    
+    # Check if file exists to write header
+    write_header = not os.path.exists(result_file)
+    
+    with open(result_file, 'a', newline='') as f:
+        writer = csv.writer(f)
+        
+        if write_header:
+            header = ['timestamp', 'epoch', 'sub_epoch']
+            for class_name in class_names:
+                header.extend([f'{class_name}_img_auc', f'{class_name}_pixel_auc'])
+            header.extend(['mean_img_auc', 'mean_pixel_auc'])
+            writer.writerow(header)
+        
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        row = [timestamp, epoch, sub_epoch]
+        for i, class_name in enumerate(class_names):
+            row.extend([img_aucs[i], pixel_aucs[i]])
+        row.extend([np.mean(img_aucs), np.mean(pixel_aucs)])
+        writer.writerow(row)
 
 def train(args):
     if args.dataset == 'mvtec':
@@ -106,6 +155,9 @@ def train(args):
                     loss.backward()
                     model.optimizer.step()
                     
+                    # Save training log
+                    save_training_log(args.log_dir, epoch, sub_epoch, idx, losses, lr)
+                    
                 print(output_fmt_live.format(*([
                                             epoch, args.meta_epochs,
                                             idx, len(train_loader)]
@@ -114,6 +166,10 @@ def train(args):
 
             # Validating every epoch
             img_aucs, pixel_aucs = validate(model, CLASS_NAMES, args)
+            
+            # Save evaluation results
+            save_evaluation_results(args.result_dir, epoch, sub_epoch, CLASS_NAMES, img_aucs, pixel_aucs)
+            
             print("===============================================================================")
             for idx, class_name in enumerate(CLASS_NAMES):
                 print('{}--Epoch[{}/{}], Image AUC: {:.3f}, Pixel AUC: {:.3f}'.
@@ -128,6 +184,17 @@ def train(args):
                 best_pixel_aucs = pixel_aucs
                 best_mean_pixel_auc = np.mean(pixel_aucs) 
                 save_model(args.output_dir, model, epoch*args.sub_epochs+sub_epoch, args.dataset, flag='pix')
+    
+    # Save final results summary
+    final_results_file = os.path.join(args.result_dir, "final_results.csv")
+    with open(final_results_file, 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['class_name', 'best_img_auc', 'best_pixel_auc'])
+        for i, class_name in enumerate(CLASS_NAMES):
+            writer.writerow([class_name, best_img_aucs[i], best_pixel_aucs[i]])
+        writer.writerow(['Average', np.mean(best_img_aucs), np.mean(best_pixel_aucs)])
+        writer.writerow(['Best_Mean_Image_AUC', best_mean_img_auc, ''])
+        writer.writerow(['Best_Mean_Pixel_AUC', '', best_mean_pixel_auc])
     
     for i, class_name in enumerate(CLASS_NAMES):
         print('{}: Image AUC: {:.3f}, Pixel AUC: {:.3f}'.format(class_name, best_img_aucs[i], best_pixel_aucs[i]))

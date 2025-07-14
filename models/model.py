@@ -53,27 +53,88 @@ class HGAD(nn.Module):
             self.phi_inters.append(phi_inter)
             self.phi_intras.append(phi_intra)
 
+        self._initialize_optimizer()
+
+    def _initialize_optimizer(self):
+        """Initialize optimizer with current parameters"""
         # normalizing flows' parameters
         optimizer_params = list(self.nfs[0].parameters())
-        for l in range(1, args.feature_levels):
+        for l in range(1, self.args.feature_levels):
             optimizer_params += list(self.nfs[l].parameters())
         optimizer_params = [{'params': list(filter(lambda p: p.requires_grad, optimizer_params))}, ]
         
         # parameters of class centers
         optimizer_params.append({'params': [mu for mu in self.mus] + [mu_delta for mu_delta in self.mu_deltas],
-                                    'lr': args.lr * 3.0,
+                                    'lr': self.args.lr * 3.0,
                                     'weight_decay': 0.})
         optimizer_params[-1]['betas'] = [0.95, 0.99]  
 
         # parameters of class weights
         optimizer_params.append({'params': [phi for phi in self.phi_intras] + [phi for phi in self.phi_inters],
-                                    'lr': args.lr * 1.0,
+                                    'lr': self.args.lr * 1.0,
                                     'weight_decay': 0.})
         optimizer_params[-1]['betas'] = [0.95, 0.99]
 
-        self.optimizer = torch.optim.Adam(optimizer_params, args.lr,
+        self.optimizer = torch.optim.Adam(optimizer_params, self.args.lr,
                                             betas=[0.95, 0.99],
                                             weight_decay=1e-4)
+
+    def expand_for_new_classes(self, new_classes_count):
+        """
+        Expand the model to accommodate new classes for continual learning.
+        
+        Args:
+            new_classes_count (int): Number of new classes to add
+        """
+        print(f"Expanding model from {self.n_classes} to {self.n_classes + new_classes_count} classes")
+        
+        old_n_classes = self.n_classes
+        self.n_classes += new_classes_count
+        
+        # Expand parameters for each feature level
+        for l in range(self.args.feature_levels):
+            # Expand mus (main class centers)
+            old_mu = self.mus[l].data  # (old_n_classes, dim)
+            new_mu = torch.zeros(self.n_classes, self.feat_dims[l])
+            new_mu[:old_n_classes] = old_mu
+            
+            # Initialize new class centers
+            init_scale = 5.0 / np.sqrt(2 * self.feat_dims[l] // self.n_classes)
+            for k in range(self.feat_dims[l] // self.n_classes):
+                if self.n_classes * k < self.feat_dims[l] and self.n_classes * (k+1) <= self.feat_dims[l]:
+                    new_mu[old_n_classes:, self.n_classes * k + old_n_classes : self.n_classes * (k+1)] = \
+                        init_scale * torch.eye(new_classes_count)
+            
+            # Replace parameter
+            self.mus[l] = nn.Parameter(new_mu.to(self.args.device))
+            
+            # Expand mu_deltas (delta class centers)
+            old_mu_delta = self.mu_deltas[l].data  # (old_n_classes, n_centers - 1, dim)
+            new_mu_delta = torch.zeros(self.n_classes, self.n_centers_each_class - 1, self.feat_dims[l])
+            new_mu_delta[:old_n_classes] = old_mu_delta
+            
+            # Initialize new delta centers
+            for class_id in range(old_n_classes, self.n_classes):
+                new_mu_delta[class_id, :, :] += torch.randn(self.n_centers_each_class - 1, self.feat_dims[l])
+            
+            self.mu_deltas[l] = nn.Parameter(new_mu_delta.to(self.args.device))
+            
+            # Expand phi_intras (intra-class weights)
+            old_phi_intra = self.phi_intras[l].data  # (old_n_classes, n_centers)
+            new_phi_intra = torch.zeros(self.n_classes, self.n_centers_each_class)
+            new_phi_intra[:old_n_classes] = old_phi_intra
+            self.phi_intras[l] = nn.Parameter(new_phi_intra.to(self.args.device))
+            
+            # Expand phi_inters (inter-class weights)
+            old_phi_inter = self.phi_inters[l].data  # (old_n_classes,)
+            new_phi_inter = torch.zeros(self.n_classes)
+            new_phi_inter[:old_n_classes] = old_phi_inter
+            self.phi_inters[l] = nn.Parameter(new_phi_inter.to(self.args.device))
+        
+        # Reinitialize optimizer with new parameters
+        self._initialize_optimizer()
+        
+        print(f"Model expansion completed. New class count: {self.n_classes}")
     
     def calculate_distances_to_inter_class_centers(self, z, mu):
         """
